@@ -25,12 +25,12 @@ public class Robot extends TimedRobot {
   private final CANSparkMax m_leftMotor = new CANSparkMax(1, MotorType.kBrushless);
   private final CANSparkMax m_rightMotor = new CANSparkMax(2, MotorType.kBrushless);
 
-  //m_leftMotor.setIdleMode(IdleMode.kCoast);
+  m_leftMotor.setIdleMode(IdleMode.kCoast);
 
-  //if (m_leftMotor.setIdleMode(IdleMode.kCoast) != REVLibError.kOk ) 
-  //{
-  //  SmartDashboard.putString("Idle Mode", "Error");
-  //}
+  if (m_leftMotor.setIdleMode(IdleMode.kCoast) != REVLibError.kOk ) 
+  {
+    SmartDashboard.putString("Idle Mode", "Error");
+  }
 
 
   private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_leftMotor, m_rightMotor);
@@ -42,13 +42,6 @@ public class Robot extends TimedRobot {
     // result in both sides moving forward. Depending on how your robot's
     // gearbox is constructed, you might have to invert the left side instead.
     m_rightMotor.setInverted(true);
-
-    m_leftMotor.setIdleMode(IdleMode.kCoast);
-
-    if (m_leftMotor.setIdleMode(IdleMode.kCoast) != REVLibError.kOk ) 
-    {
-      SmartDashboard.putString("Idle Mode", "Error");
-    }
 }
 
   @Override
